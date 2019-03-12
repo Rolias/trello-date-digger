@@ -1,0 +1,44 @@
+{
+  "name": "trello-date-digger",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">10.0.0"
+  },
+  "description": "Hit the trello API to get cards and the oldest date on those cards",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "node ./buildScripts/startMessage.js",
+    "start": "run-s start:src",
+    "build": "run-p security-check start:src lint:watch test:watch",
+    "start:src": "node src/index.js",
+    "start:loop": "nodemon src/index.js",
+    "security-check": "npm audit",
+    "lint": "esw src src buildScripts --color",
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --use_strict --reporter progress \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch",
+    "test:cov": "nyc mocha \"src/**/*.test.js\"",
+    "watch": "run-p lint:watch test:watch"
+  },
+  "keywords": [
+    "trello"
+  ],
+  "author": "Tod Gentille",
+  "license": "MIT",
+  "dependencies": {
+    "winston": "x"
+  },
+  "devDependencies": {
+    "@types/node": "x",
+    "chai": "x",
+    "eslint": "x",
+    "eslint-watch": "x",
+    "jsdoc": "^3.5.5",
+    "mocha": "x",
+    "nodemon": "^1.18.10",
+    "npm-run-all": "x",
+    "nyc": "x",
+    "sinon": "x"
+  }
+}
