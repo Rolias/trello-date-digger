@@ -5,6 +5,10 @@
   "engines": {
     "node": ">10.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rolias/trello-date-digger"
+  },
   "description": "Hit the trello API to get cards and the oldest date on those cards",
   "main": "index.js",
   "scripts": {
