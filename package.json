@@ -12,15 +12,14 @@
   "description": "Hit the trello API to get cards and the oldest date on those cards",
   "main": "index.js",
   "scripts": {
-    "prestart": "node ./buildScripts/startMessage.js",
     "start": "run-s start:src",
     "build": "run-p security-check start:src lint:watch test:watch",
-    "start:src": "node src/index.js",
-    "start:loop": "nodemon src/index.js",
+    "start:src": "node main.js",
+    "start:loop": "nodemon main.js",
     "security-check": "npm audit",
-    "lint": "esw src src buildScripts --color",
+    "lint": "esw src  --color",
     "lint:watch": "npm run lint -- --watch",
-    "test": "mocha --use_strict --reporter progress \"src/**/*.test.js\"",
+    "test": "mocha  --reporter progress \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
     "test:cov": "nyc mocha \"src/**/*.test.js\"",
     "watch": "run-p lint:watch test:watch"
@@ -31,10 +30,14 @@
   "author": "Tod Gentille",
   "license": "MIT",
   "dependencies": {
+    "env-create": "^1.0.3",
+    "gsweet": "^1.1.0",
+    "moment": "^2.24.0",
+    "trello-helper": "^1.0.4",
     "winston": "x"
   },
   "devDependencies": {
-    "@types/node": "x",
+    "@types/node": "^11.11.1",
     "chai": "x",
     "eslint": "x",
     "eslint-watch": "x",

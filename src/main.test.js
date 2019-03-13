@@ -2,6 +2,11 @@ const chai = require('chai'),
   {expect} = chai
 chai.should()
 const logger = require('./util/logger')
+const Trello = require('trello-helper')
+
+const trello_ = new Trello()
+
+// const ABOUT_LIST_ID = '546e5dde53994b64db614cd1'
 
 describe('name or description of test', () => {
   // beforeEach ( () =>{});
@@ -9,6 +14,7 @@ describe('name or description of test', () => {
   it('should pass theses', () => {
     expect(true).to.equal(true)
   })
+
 
   it('should work with classes', () => {
     class Person {
