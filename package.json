@@ -31,13 +31,13 @@
   "license": "MIT",
   "dependencies": {
     "env-create": "^1.0.3",
-    "gsweet": "^1.1.0",
+    "gsweet": "^1.1.1",
     "moment": "^2.24.0",
-    "trello-helper": "^1.0.4",
+    "trello-helper": "^1.0.5",
     "winston": "x"
   },
   "devDependencies": {
-    "@types/node": "^11.11.1",
+    "@types/node": "^11.11.3",
     "chai": "x",
     "eslint": "x",
     "eslint-watch": "x",

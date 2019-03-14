@@ -16,8 +16,8 @@ const main = async () => {
   const {sheetOps} = gsweet
 
 
-  const cardsFromList = await trello.getCardsOnList(COMMISSIONED_LIST_ID)
-
+  // const cardsFromList = await trello.getCardsOnList({id: COMMISSIONED_LIST_ID, options: {limit: 40}})
+  const cardsFromList = await trello.getCardsOnList({id: COMMISSIONED_LIST_ID})
   const cardList = []
   cardList.push(['Name', 'Oldest Data', 'Date card moved to Board', '# board moves found'])
   for (const card of cardsFromList) {
@@ -28,15 +28,15 @@ const main = async () => {
     const lastItem = actions.length - 1
     const lastDate = actions[lastItem].date
     const fmtDate = formatDate(lastDate)
-    const moveInfo = trello.getMoveCardToBoardInfo(actions)
+    const moved = trello.getMoveCardToBoardActions(actions)
     const cardData = [card.name, fmtDate]
 
     let formattedBoardMoveDate = ''
-    if (moveInfo.date !== '') {
-      formattedBoardMoveDate = formatDate(moveInfo.date)
+    if (moved.length > 0) {
+      formattedBoardMoveDate = formatDate(moved[0].date)
     }
     cardData.push(formattedBoardMoveDate)
-    cardData.push(moveInfo.status)
+    cardData.push(moved.length)
     cardList.push(cardData)
   }
   console.log(cardList)
